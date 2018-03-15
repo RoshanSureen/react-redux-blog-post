@@ -28,5 +28,12 @@ export default {
       })
       .then(response => callback(null, response))
       .catch(err => callback(err, null));
+  },
+  delete: (endpoint, id, callback) => {
+    const url = ROOT_URL + endpoint + `/${id}` + API_KEY;
+    axios
+      .delete(url)
+      .then(response => callback(null, response))
+      .catch(err => callback(err, null));
   }
 };

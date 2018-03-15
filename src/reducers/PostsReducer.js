@@ -10,6 +10,9 @@ export default (state = initialState, action) => {
   let updated = Object.assign({}, state);
 
   switch (action.type) {
+    case constants.POST_DELETED:
+      return _.omit(updated["list"], action.id)
+
     case constants.SINGLE_POST_RECEIVED:
       // const post = action.post;
       // updated["newPost"] = {...updated["list"]};

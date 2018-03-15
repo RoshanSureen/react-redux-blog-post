@@ -38,5 +38,20 @@ export default {
         });
       });
     };
+  },
+  deletePost: (id, callback) => {
+    return dispatch => {
+      APIManager.delete("/api/posts", id, (err, response) => {
+        if (err) {
+          console.log("error: " + err);
+        } else {
+          callback();
+        }
+        dispatch({
+          type: constants.POST_DELETED,
+          id
+        });
+      });
+    };
   }
 };
