@@ -10,5 +10,16 @@ export default {
       .get(url)
       .then(response => callback(null, response))
       .catch(err => callback(err, null));
+  },
+  post: (endpoint, params, callback) => {
+    const url = ROOT_URL + endpoint + API_KEY;
+    axios
+      .post(url, {
+        title: params.title,
+        categories: params.categories,
+        content: params.content
+      })
+      .then(response => callback(null, response))
+      .catch(err => callback(err, null));
   }
 };
