@@ -11,6 +11,13 @@ export default {
       .then(response => callback(null, response))
       .catch(err => callback(err, null));
   },
+  getById: (endpoint, id, callback) => {
+    const url = ROOT_URL + endpoint + `/${id}` + API_KEY;
+    axios
+      .get(url)
+      .then(response => callback(null, response))
+      .catch(err => callback(err, null));
+  },
   post: (endpoint, params, callback) => {
     const url = ROOT_URL + endpoint + API_KEY;
     axios

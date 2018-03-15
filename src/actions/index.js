@@ -25,5 +25,18 @@ export default {
         }
       });
     };
+  },
+  fetchSinglePost: id => {
+    return dispatch => {
+      APIManager.getById("/api/posts", id, (err, response) => {
+        if (err) {
+          console.log("error: " + err);
+        }
+        dispatch({
+          type: constants.SINGLE_POST_RECEIVED,
+          post: response.data
+        });
+      });
+    };
   }
 };
